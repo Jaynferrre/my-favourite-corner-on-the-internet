@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>✨ Fairytopia Library</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Butterflies & sparkles -->
+  <div id="butterflies-container"></div>
+  <div id="sparkles-container"></div>
+
+  <!-- ── Top Bar ── -->
+  <header id="topBar">
+    <div id="calendarWidget">
+      <span class="cal-flower">🌸</span>
+      <div class="cal-month" id="calMonth"></div>
+      <div class="cal-day-num" id="calDay"></div>
+      <div class="cal-weekday" id="calWeekday"></div>
+      <div class="cal-year" id="calYear"></div>
+    </div>
+
+    <!-- IST Clock -->
+    <div id="clockWidget">
+      <div class="clock-icon">🕐</div>
+      <div id="clockTime" class="clock-time">00:00:00</div>
+      <div class="clock-ampm-row">
+        <span id="clockAmPm" class="clock-ampm">AM</span>
+        <span class="clock-label">IST</span>
+      </div>
+    </div>
+
+    <div id="quoteWidget">
+      <div class="quote-deco">✦</div>
+      <div class="quote-text" id="quoteText"></div>
+      <div class="quote-author" id="quoteAuthor"></div>
+    </div>
+
+    <div id="statsWidget">
+      <strong id="statCount">0</strong> tomes<br>
+      <span id="statRead">0</span> in progress
+    </div>
+  </header>
+
+  <!-- ── Library Room ── -->
+  <main id="libraryRoom">
+    <div id="shelfContainer">
+      <!-- Shelf units injected by JS -->
+    </div>
+  </main>
+
+  <!-- ── Pixie Table (fixed corner) ── -->
+  <div id="pixieTable">
+    <div class="table-content">
+      <!-- Pixie SVG -->
+      <div id="pixieEl"></div>
+      <!-- Pending books waiting to be shelved -->
+      <div id="pendingZone"></div>
+      <span class="pending-label" id="pendingLabel"></span>
+      <!-- Upload button -->
+      <label class="table-upload-btn" for="fileInput">
+        📖 Add Tome
+      </label>
+      <input type="file" id="fileInput" accept=".pdf" multiple hidden>
+    </div>
+    <div class="table-surface"></div>
+    <div class="table-legs-bar"></div>
+    <div class="table-feet">
+      <div class="table-foot"></div>
+      <div class="table-foot"></div>
+    </div>
+  </div>
+
+  <!-- Pixie speech bubble -->
+  <div id="pixieSpeech" class="hidden"></div>
+
+  <!-- Conjure banner -->
+  <div id="conjureBanner"></div>
+
+  <!-- Toast -->
+  <div id="toast" role="alert" aria-live="polite"></div>
+
+  <!-- Loading overlay -->
+  <div id="loadingOverlay" class="hidden" aria-hidden="true">
+    <div class="spinner-butterfly">🦋</div>
+    <p>weaving enchantment…</p>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="db.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
