@@ -6,7 +6,7 @@
   <title>✨ Fairytopia Library</title>
   <!-- BOUNCER SCRIPT: Kicks them to the door if they didn't use the password -->
   <script>
-    if (sessionStorage.getItem('fairytopia_unlocked') !== 'true') {
+    if (localStorage.getItem('fairytopia_unlocked') !== 'true') {
       window.location.replace('index.html');
     }
   </script>
