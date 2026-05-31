@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>✨ Reading…</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="reader-body">
+
+  <!-- Butterflies & Sparkles -->
+  <div id="butterflies-container"></div>
+  <div id="sparkles-container"></div>
+
+  <!-- ── Loading Screen ── -->
+  <div class="reader-loading" id="readerLoading">
+    <div class="loading-butterfly">🦋</div>
+    <p>opening your tome…</p>
+    <div class="progress-ring">
+      <div class="progress-ring-fill" id="loadProgress"></div>
+    </div>
+  </div>
+
+  <!-- ── Reader Header ── -->
+  <header class="reader-header">
+    <a href="index.html" class="btn-back">← Library</a>
+    <h1 class="reader-title" id="readerTitle">Loading…</h1>
+    <div class="page-indicator" id="pageIndicator" aria-live="polite" aria-atomic="true">— / —</div>
+  </header>
+
+  <div id="pageAnnouncer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- ── Book Stage ── -->
+  <main class="reader-main">
+    <!-- Nav zone prev -->
+    <div class="nav-zone prev" id="navPrev" role="button" aria-label="Previous pages" tabindex="0">
+      <div class="nav-arrow">‹</div>
+    </div>
+
+    <div class="book-viewport" id="bookViewport">
+      <div class="book-scroll-content" id="bookScrollContent">
+        <div class="book-scene" id="bookScene">
+          <div class="book" id="book">
+        <!-- Left page -->
+        <div class="page-side left" id="pageLeft" role="group" aria-labelledby="pageLeftLabel">
+          <span id="pageLeftLabel" class="sr-only">Left page</span>
+          <canvas id="canvasLeft" role="img" aria-label="Left page"></canvas>
+          <div id="pageTextLeft" class="sr-only"></div>
+        </div>
+        <!-- Spine -->
+        <div class="book-spine" aria-hidden="true"></div>
+        <!-- Right page -->
+        <div class="page-side right" id="pageRight" role="group" aria-labelledby="pageRightLabel">
+          <span id="pageRightLabel" class="sr-only">Right page</span>
+          <canvas id="canvasRight" role="img" aria-label="Right page"></canvas>
+          <div id="pageTextRight" class="sr-only"></div>
+        </div>
+        <!-- Flip card overlay -->
+        <div class="flip-wrapper">
+          <div class="flip-card" id="flipCard">
+            <div class="flip-face front"><canvas id="flipFront"></canvas></div>
+            <div class="flip-face back"><canvas id="flipBack"></canvas></div>
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nav zone next -->
+    <div class="nav-zone next" id="navNext" role="button" aria-label="Next pages" tabindex="0">
+      <div class="nav-arrow">›</div>
+    </div>
+  </main>
+
+  <!-- ── Controls Bar ── -->
+  <footer class="reader-controls">
+    <button class="ctrl-btn" id="btnPrev" disabled aria-label="Previous page">‹ <span>Previous</span></button>
+
+    <div class="zoom-controls" role="group" aria-label="Zoom">
+      <button class="ctrl-btn ctrl-btn-sm" id="btnZoomOut" type="button" aria-label="Zoom out">−</button>
+      <label class="zoom-input" for="zoomLevelInput">
+        <span class="sr-only">Zoom level percent</span>
+        <input type="number" id="zoomLevelInput" min="50" max="400" step="1"
+               inputmode="numeric" value="210" aria-label="Zoom percent">
+        <span class="zoom-suffix" aria-hidden="true">%</span>
+      </label>
+      <button class="ctrl-btn ctrl-btn-sm" id="btnZoomIn" type="button" aria-label="Zoom in">+</button>
+    </div>
+
+    <label class="page-jump" for="pageJumpInput">
+      <span class="sr-only">Go to page</span>
+      <input type="number" id="pageJumpInput" min="1" inputmode="numeric" aria-label="Page number" placeholder="#">
+      <button class="ctrl-btn ctrl-btn-sm" id="btnPageJump" type="button">Go</button>
+    </label>
+
+    <div class="progress-bar" id="progressBar" role="slider" tabindex="0"
+         aria-label="Reading progress" aria-valuemin="1" aria-valuemax="1" aria-valuenow="1">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <button class="ctrl-btn" id="btnNext" disabled aria-label="Next page">
+      <span>Next</span> ›
+    </button>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="db.js"></script>
+  <script src="reader.js"></script>
+</body>
+</html>
